@@ -9,7 +9,7 @@ export const getPaginationRolesAction = async (page = 1, pageSize = 10, searchTe
 
       try {
           const { data } = await personsApi
-          .get<ApiResponse<PageResponse<RolesResponse>>>(`/countries`, {
+          .get<ApiResponse<PageResponse<RolesResponse>>>(`/roles`, {
             params: {
               page,
               pageSize,

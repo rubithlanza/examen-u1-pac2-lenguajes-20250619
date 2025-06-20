@@ -1,4 +1,5 @@
 export interface RolesResponse {
-name: string;
-
+    id : string;
+    name: string;
+    description: string;
 }

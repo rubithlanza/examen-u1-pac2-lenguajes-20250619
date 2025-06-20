@@ -3,18 +3,16 @@ import { ApiResponse } from "../../../infrastructure/interfaces/api.response";
 import { ApiErrorResponse } from "../../../infrastructure/interfaces/api-error.response";
 import { personsApi } from "../../api/persons.api";
 import { RoleResponse } from "../../../infrastructure/interfaces/role.response";
-import { RoleModel } from "../../models/role.model";
 
-export const editRoleAction = async (
-    role:RoleModel, roleId: string
+export const deleteRoleAction = async (
+    roleId: string
 ): Promise<ApiResponse<RoleResponse>> => {
 
     try {
 
         const { data } = await personsApi
-            .put<ApiResponse<RoleResponse>>(
-                `/roles/${roleId}`,
-                role
+            .delete<ApiResponse<RoleResponse>>(
+                `/roles/${roleId}`,                
             );
 
         return data;

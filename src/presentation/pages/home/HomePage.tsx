@@ -3,10 +3,12 @@ import { Title } from "../../components/shared/Title"
 import { DashboardCard } from "../../components/home/DashboardCard"
 import { Loader } from "../../components/shared/Loader"
 import { useStatistics } from "../../hooks/useStatistics"
+import { useRoles } from "../../hooks/useRoles"
 
 export const HomePage = () => {
 
   const { data, isLoading } = useStatistics();
+  const {rolePaginationQuery} = useRoles();
 
   if(isLoading) {
     return <Loader />
@@ -37,7 +39,7 @@ export const HomePage = () => {
         <DashboardCard
           title="Roles"
           to="/roles/create"
-          countValue={data?.data?.rolesCount || 0}
+          countValue={rolePaginationQuery.data?.data.totalItems || 0}
           icon={<UserCircle size={48} />}
         />
 
